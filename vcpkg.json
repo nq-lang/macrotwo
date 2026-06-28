@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "macro-terminal",
+  "version": "0.1.0",
+  "description": "Institutional-grade Macro Intelligence Terminal — C++23",
+  "dependencies": [
+    "glfw3",
+    "glad",
+    {
+      "name": "imgui",
+      "features": ["glfw-binding", "opengl3-binding", "docking-experimental"]
+    },
+    "implot",
+    "nlohmann-json",
+    "eigen3",
+    "curl",
+    "spdlog",
+    "catch2",
+    "openscenegraph"
+  ],
+  "builtin-baseline": "a34c873a9717a888f58dc05268dea15592c2f822"
+}

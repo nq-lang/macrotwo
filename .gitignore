@@ -1,0 +1,38 @@
+# Build artifacts
+build/
+out/
+*.o *.obj *.d *.pch
+
+# vcpkg installed packages
+vcpkg_installed/
+
+# Secrets — NEVER commit
+.env
+*.pem *.key *.p12 *.json.key
+
+# IDEs
+.vscode/settings.json
+.vscode/launch.json
+.clangd/
+*.user
+.idea/
+*.xcodeproj/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime caches
+data/*.cache
+data/*.tif
+data/*.geojson.cache
+
+# CMake generated
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Layout persistence (user-specific)
+macro_terminal_layout.ini
