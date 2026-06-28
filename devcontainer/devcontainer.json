@@ -1,0 +1,66 @@
+{
+  "name": "Macro Intelligence Terminal — C++23",
+  "image": "mcr.microsoft.com/devcontainers/cpp:1-ubuntu-24.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "username": "vscode"
+    },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  "runArgs": ["--privileged", "--init"],
+
+  "containerEnv": {
+    "VCPKG_ROOT": "/usr/local/vcpkg",
+    "DISPLAY": ":99",
+    "DEBIAN_FRONTEND": "noninteractive"
+  },
+
+  "onCreateCommand": "sudo bash .devcontainer/setup.sh",
+
+  "postStartCommand": "Xvfb :99 -screen 0 1920x1080x24 &>/tmp/xvfb.log &",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools-extension-pack",
+        "twxs.cmake",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.hexeditor",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "cmake.buildDirectory": "${workspaceFolder}/build/debug",
+        "cmake.configurePreset": "debug",
+        "cmake.buildPreset": "debug",
+        "cmake.configureOnOpen": true,
+        "C_Cpp.default.cppStandard": "c++23",
+        "C_Cpp.intelliSenseEngine": "disabled",
+        "clangd.path": "/usr/bin/clangd-17",
+        "clangd.arguments": [
+          "--clang-tidy",
+          "--completion-style=detailed",
+          "--header-insertion=iwyu",
+          "--compile-commands-dir=${workspaceFolder}/build/debug"
+        ],
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.formatOnSave": false,
+        "editor.rulers": [100],
+        "files.trimTrailingWhitespace": true,
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
+    }
+  },
+
+  "forwardPorts": [],
+  "remoteUser": "vscode",
+
+  "mounts": []
+}
